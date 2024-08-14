@@ -5,27 +5,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="src/output.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poetsen+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
-    <header class="bg-red-600 items-center px-2 text-white gap-5 justify-center h-14  flex">
+    <header
+        class="bg-[#FDFDFD] mx-3 items-center pb-3 px-2 text-white gap-6 justify-center h-14 top-0 fixed w-full z-50  flex">
         <a href="">
-            <h1 class="text-2xl mt-2"> hactiv8shop</h1>
+            <h1 class="text-3xl font-[Poppins]  font-bold text-[#F68C11] mt-2"> Hactiv8Shop</h1>
         </a>
-        <section id="searching" class="flex h-6 w-full gap-2 mt-2 ">
-            <div class="search-logo">
+        <section id="searching" class="flex h-6 w-full gap-2  ">
+            <div class="search-logo relative flex items-center ">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    class="feather feather-search">
+                    class="feather feather-search text-black bg-opacity-75">
                     <circle cx="11" cy="11" r="8"></circle>
                     <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                 </svg>
             </div>
 
             <input type="" id="searchInput"
-                class="w-full sm:w-2/3 px-[0.9rem] py-[0.85rem] focus:outline-none focus:ring-1  focus:ring-slate-500  rounded-[1.2rem]"
-                placeholder="Search...">
+                class="w-full sm:w-2/3 px-[0.9rem] py-5 focus:outline-none focus:ring-1  bg-[#D9D9D9] focus:ring-slate-500  rounded-[1.2rem]"
+                placeholder="Cari di Hactiv8Shop">
 
 
         </section>

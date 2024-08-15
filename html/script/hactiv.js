@@ -50,14 +50,10 @@ containerProduct.innerHTML = productsHTML
 // update the quantity of the cart image above
 function updateCartQuantity() {
     const cartQuantity = calculateCartQuantity();
-
-
     document.querySelector('.js-cart-quantity')
         .innerHTML = cartQuantity
 
 }
-
-
 
 
 const cartButton = document.querySelectorAll('.js-add-to-cart')

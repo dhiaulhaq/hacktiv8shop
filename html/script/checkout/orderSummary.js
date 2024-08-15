@@ -22,10 +22,7 @@ export function renderOrderSummary() {
                           <div class="product-price">$${matchingProduct.priceCents}</div>
                         </div>
                         <div class="product-quantity">
-                          <span> Quantity: <span class="quantity-label">${cartItem.quantity}</span> </span>
-                          <span class="update-quantity-link link-primary">
-                            Update
-                          </span>
+                          <span> Quantity: <span class="quantity-label">${cartItem.quantity}</span> </span> || 
                           <span class="delete-quantity-link link-primary-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
                             Delete
                           </span>

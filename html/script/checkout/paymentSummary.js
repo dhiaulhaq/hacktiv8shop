@@ -1,19 +1,21 @@
-import {cart, calculateCartQuantity } from "../data/cart.js";
+import { cart, calculateCartQuantity } from "../data/cart.js";
 import { getProduct } from "../data/product.js";
 
 export function renderPaymentSummary() {
-    let productPriceCents = 0;
-    let cartQuantity = calculateCartQuantity();
-    let afterTax = 0;
-    let totalProduct = 0;
-    cart.forEach((cartItem) => {
-        const product = getProduct(cartItem.productId);
-        productPriceCents += product.priceCents * cartItem.quantity;
-        afterTax += productPriceCents * 10/100;
-        totalProduct = afterTax + productPriceCents;
-    });
-    
-    let paymentSummary = `<div class="payment-summary-title">Order Summary</div>
+  let productPriceCents = 0;
+  let cartQuantity = calculateCartQuantity();
+  let afterTax = 0;
+  let totalProduct = 0;
+  let productOrder = '';
+  cart.forEach((cartItem) => {
+    const product = getProduct(cartItem.productId);
+    productPriceCents += product.priceCents * cartItem.quantity;
+    afterTax += productPriceCents * 10 / 100;
+    totalProduct = afterTax + productPriceCents;
+    productOrder += product.name+", ";
+  });
+
+  let paymentSummary = `<div class="payment-summary-title">Order Summary</div>
     
               <div class="payment-summary-row">
                 <div>Items (${cartQuantity}):</div>
@@ -37,8 +39,40 @@ export function renderPaymentSummary() {
     
               <button class="place-order-button">
                 Place your order
-              </button>`
+              </button>`;
+
+  const paymentOrder = document.querySelector('.payment-summary');
+  paymentOrder.innerHTML = paymentSummary;
+
+  const totalQuantityModal = document.querySelector(".total-quantity-modal");
+  totalQuantityModal.innerHTML = cartQuantity
+
+  const totalPriceModal = document.querySelector(".total-price-modal")
+  totalPriceModal.innerHTML = totalProduct
+
+  const checkoutModal = document.querySelector("#checkout-modal")
+
+  const orderButton = document.querySelector(".place-order-button");
+  orderButton.addEventListener("click", () => {
+    checkoutModal.classList.remove("invisible")
+    console.log(checkoutModal)
+
+    const checkoutOrderModal = document.querySelector("#submitCheckout");
+    checkoutOrderModal.addEventListener("click", () => {
+      const fullName = document.querySelector('input[name="name"]');
+      const phone = document.querySelector('input[name="phone"]');
+      const address = document.querySelector('input[name="address"]');
+      
+      window.open(`https://api.whatsapp.com/send/?phone=6285183142899&text=Halo admin, saya memesan: ${productOrder}dengan total harga sebesar: $${totalProduct}. Nama Pemesan: ${fullName.value}. No. Telepon: ${phone.value}. Alamat: ${address.value}. Tolong diproses ya!`);
+      
+    });
     
-    const paymentOrder = document.querySelector('.payment-summary');
-    paymentOrder.innerHTML = paymentSummary;
+  });
+
+  document.addEventListener('click', function (event) {
+    // If the click is outside the modal and not on the "Place order" button
+    if (!checkoutModal.contains(event.target) && !orderButton.contains(event.target)) {
+      checkoutModal.classList.add("invisible");
+    }
+  });
 }

@@ -46,17 +46,12 @@ products.forEach((product) => {
 const containerProduct = document.querySelector(".products-grid")
 containerProduct.innerHTML = productsHTML
 
-
-
-
 // update the quantity of the cart image above
 function updateCartQuantity() {
     const cartQuantity = calculateCartQuantity();
     document.querySelector('.js-cart-quantity')
         .innerHTML = cartQuantity
-
 }
-
 
 const cartButton = document.querySelectorAll('.js-add-to-cart')
 console.log(cartButton)
@@ -64,7 +59,6 @@ cartButton.forEach((button) => {
     button.addEventListener('click', () => {
         const productId = button.dataset.productId;
         addToCart(productId);
-
         updateCartQuantity();
 
     });

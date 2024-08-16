@@ -23,7 +23,7 @@ export function renderOrderSummary() {
                         </div>
                         <div class="product-quantity">
                           <span> Quantity: <span class="quantity-label">${cartItem.quantity}</span> </span> || 
-                          <span class="delete-quantity-link link-primary-${matchingProduct.id}" data-product-id="${matchingProduct.id}">
+                          <span class="delete-quantity-link cursor-pointer link-primary-${matchingProduct.id}" data-product-id="${matchingProduct.id}" style="color: red;">
                             Delete
                           </span>
                         </div>

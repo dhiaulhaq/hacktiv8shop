@@ -19,7 +19,7 @@ export function renderOrderSummary() {
                           <div class="product-name">
                           ${matchingProduct.name}
                           </div>
-                          <div class="product-price">$${matchingProduct.priceCents}</div>
+                          <div class="product-price sm:absolute sm:right-0">$${matchingProduct.priceCents}</div>
                         </div>
                         <div class="product-quantity">
                           <span> Quantity: <span class="quantity-label">${cartItem.quantity}</span> </span> || 

@@ -48,7 +48,7 @@ export function renderPaymentSummary() {
   totalQuantityModal.innerHTML = cartQuantity
 
   const totalPriceModal = document.querySelector(".total-price-modal")
-  totalPriceModal.innerHTML = totalProduct
+  totalPriceModal.innerHTML = "$"+totalProduct
 
   const checkoutModal = document.querySelector("#checkout-modal")
 
@@ -63,7 +63,7 @@ export function renderPaymentSummary() {
       const phone = document.querySelector('input[name="phone"]');
       const address = document.querySelector('input[name="address"]');
       
-      window.open(`https://api.whatsapp.com/send/?phone=6285183142899&text=Halo admin, saya memesan: ${productOrder}dengan total harga sebesar: $${totalProduct}. Nama Pemesan: ${fullName.value}. No. Telepon: ${phone.value}. Alamat: ${address.value}. Tolong diproses ya!`);
+      window.open(`https://api.whatsapp.com/send/?phone=6285183142899&text=Hi admin, I ordered: ${productOrder} with a total price of: $${totalProduct}. Buyer Name: ${fullName.value}. Phone: ${phone.value}. Address: ${address.value}. Please process it!`);
       
     });
     

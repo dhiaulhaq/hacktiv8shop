@@ -1,5 +1,6 @@
 import { cart, calculateCartQuantity } from "../data/cart.js";
 import { getProduct } from "../data/product.js";
+import {formatCurrency} from "../utils/money.js";
 
 export function renderPaymentSummary() {
   let productPriceCents = 0;
@@ -19,22 +20,22 @@ export function renderPaymentSummary() {
     
               <div class="payment-summary-row">
                 <div>Items (${cartQuantity}):</div>
-                <div class="payment-summary-money">$${productPriceCents}</div>
+                <div class="payment-summary-money">$${formatCurrency(productPriceCents)}</div>
               </div>
     
               <div class="payment-summary-row subtotal-row">
                 <div>Total before tax:</div>
-                <div class="payment-summary-money">$${productPriceCents}</div>
+                <div class="payment-summary-money">$${formatCurrency(productPriceCents)}</div>
               </div>
     
               <div class="payment-summary-row">
                 <div>Estimated tax (10%):</div>
-                <div class="payment-summary-money">$${afterTax}</div>
+                <div class="payment-summary-money">$${formatCurrency(afterTax)}</div>
               </div>
     
               <div class="payment-summary-row total-row">
                 <div>Order total:</div>
-                <div class="payment-summary-money">$${totalProduct}</div>
+                <div class="payment-summary-money">$${formatCurrency(totalProduct)}</div>
               </div>
     
               <button class="place-order-button">
@@ -48,7 +49,7 @@ export function renderPaymentSummary() {
   totalQuantityModal.innerHTML = cartQuantity
 
   const totalPriceModal = document.querySelector(".total-price-modal")
-  totalPriceModal.innerHTML = "$"+totalProduct
+  totalPriceModal.innerHTML = "$"+formatCurrency(totalProduct)
 
   const checkoutModal = document.querySelector("#checkout-modal")
 
@@ -63,7 +64,7 @@ export function renderPaymentSummary() {
       const phone = document.querySelector('input[name="phone"]');
       const address = document.querySelector('input[name="address"]');
       
-      window.open(`https://api.whatsapp.com/send/?phone=6285183142899&text=Hi admin, I ordered: ${productOrder} with a total price of: $${totalProduct}. Buyer Name: ${fullName.value}. Phone: ${phone.value}. Address: ${address.value}. Please process it!`);
+      window.open(`https://api.whatsapp.com/send/?phone=6285183142899&text=Hi admin, I ordered: ${productOrder} with a total price of: $${formatCurrency(totalProduct)}. Buyer Name: ${fullName.value}. Phone: ${phone.value}. Address: ${address.value}. Please process it!`);
       
     });
     
